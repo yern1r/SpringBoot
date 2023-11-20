@@ -1,6 +1,7 @@
-package com.yernaryelemess.spring.rest.dao;
+package com.yernaryelemess.spring.springboot.springboot.dao;
 
-import com.yernaryelemess.spring.rest.entity.Employee;
+
+import com.yernaryelemess.spring.springboot.springboot.entity.Employee;
 
 import java.util.List;
 

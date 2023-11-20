@@ -1,10 +1,10 @@
-package com.yernaryelemess.spring.rest.controller;
+package com.yernaryelemess.spring.springboot.springboot.controller;
 
-import com.yernaryelemess.spring.rest.entity.Employee;
-import com.yernaryelemess.spring.rest.exception_handling.NoSuchEmployeeException;
-import com.yernaryelemess.spring.rest.service.EmployeeService;
+import com.yernaryelemess.spring.springboot.springboot.entity.Employee;
+import com.yernaryelemess.spring.springboot.springboot.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -27,10 +27,10 @@ public class MyRESTController {
 
         Employee employee = employeeService.getEmployee(id);
 
-        if (employee==null){
-            throw new NoSuchEmployeeException("There is no employee with ID = "
-                    + id + " in DataBase." );
-        }
+//        if (employee==null){
+//            throw new NoSuchEmployeeException("There is no employee with ID = "
+//                    + id + " in DataBase." );
+//        }
 
         return employee;
     }
@@ -53,11 +53,11 @@ public class MyRESTController {
     @DeleteMapping("/employees/{id}")
     public String deleteEmployee(@PathVariable int id){
 
-        Employee employee = employeeService.getEmployee(id);
-        if (employee==null){
-            throw new NoSuchEmployeeException("There is no employee with id "
-                    + id + " in Database");
-        }
+//        Employee employee = employeeService.getEmployee(id);
+//        if (employee==null){
+//            throw new NoSuchEmployeeException("There is no employee with id "
+//                    + id + " in Database");
+//        }
 
         employeeService.deleteEmployee(id);
 

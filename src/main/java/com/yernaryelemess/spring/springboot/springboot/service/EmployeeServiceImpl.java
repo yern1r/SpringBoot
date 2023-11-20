@@ -1,7 +1,8 @@
-package com.yernaryelemess.spring.rest.service;
+package com.yernaryelemess.spring.springboot.springboot.service;
 
-import com.yernaryelemess.spring.rest.dao.EmployeeDAO;
-import com.yernaryelemess.spring.rest.entity.Employee;
+
+import com.yernaryelemess.spring.springboot.springboot.dao.EmployeeDAO;
+import com.yernaryelemess.spring.springboot.springboot.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

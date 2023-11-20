@@ -1,15 +1,16 @@
-package com.yernaryelemess.spring.rest.entity;
+package com.yernaryelemess.spring.springboot.springboot.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 
 
 @Entity
-@Table(name = "employees")
+@Table (name = "employees")
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "employer_id")
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column (name = "employer_id")
     private int employer_id;
 
     @Column(name = "name")
@@ -27,7 +28,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee( String name, String surname,String department ,int salary ) {
+    public Employee(String name, String surname, String department , int salary ) {
 
         this.name = name;
         this.surname = surname;

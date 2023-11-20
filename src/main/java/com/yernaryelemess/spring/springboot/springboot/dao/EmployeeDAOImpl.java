@@ -1,26 +1,25 @@
-package com.yernaryelemess.spring.rest.dao;
+package com.yernaryelemess.spring.springboot.springboot.dao;
 
-import com.yernaryelemess.spring.rest.entity.Employee;
+import com.yernaryelemess.spring.springboot.springboot.entity.Employee;
+import jakarta.persistence.EntityManager;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Autowired
-    private SessionFactory sessionFactory;
+    private EntityManager entityManager;
 
 
 
     @Override
     public List<Employee> getAllEmployees() {
 
-        Session session = sessionFactory.getCurrentSession();
+        Session session = entityManager.unwrap(Session.class);
 
         Query<Employee> query = session.createQuery("from Employee"
                 , Employee.class);
@@ -34,14 +33,14 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     @Override
     public void saveEmployee(Employee employee) {
 
-        Session session = sessionFactory.getCurrentSession();
+        Session session = entityManager.unwrap(Session.class);
 
         session.saveOrUpdate(employee);
     }
 
     @Override
     public Employee getEmployee(int employer_id) {
-        Session session = sessionFactory.getCurrentSession();
+        Session session = entityManager.unwrap(Session.class);
         Employee employee = session.get(Employee.class , employer_id);
         return employee;
     }
@@ -49,7 +48,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     @Override
     public void deleteEmployee(int employer_id) {
 
-        Session session = sessionFactory.getCurrentSession();
+        Session session = entityManager.unwrap(Session.class);
         Query<Employee> query = session.createQuery("delete from Employee " +
                 "where employer_id =: employeeId");
         query.setParameter("employeeId", employer_id);
